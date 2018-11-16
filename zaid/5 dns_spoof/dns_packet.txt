@@ -1,0 +1,357 @@
+###[ IP ]###
+  version   = 4L
+  ihl       = 5L
+  tos       = 0x0
+  len       = 174
+  id        = 619
+  flags     = DF
+  frag      = 0L
+  ttl       = 64
+  proto     = udp
+  chksum    = 0x600a
+  src       = 192.168.43.1
+  dst       = 192.168.43.120
+  \options   \
+###[ UDP ]###
+     sport     = domain
+     dport     = 44743
+     len       = 154
+     chksum    = 0x7576
+###[ DNS ]###
+        id        = 52134
+        qr        = 1L
+        opcode    = QUERY
+        aa        = 0L
+        tc        = 0L
+        rd        = 1L
+        ra        = 1L
+        z         = 0L
+        rcode     = ok
+        qdcount   = 1
+        ancount   = 4
+        nscount   = 0
+        arcount   = 0
+        \qd        \
+         |###[ DNS Question Record ]###
+         |  qname     = 'www.bing.com.'
+         |  qtype     = A
+         |  qclass    = IN
+        \an        \
+         |###[ DNS Resource Record ]###
+         |  rrname    = 'www.bing.com.'
+         |  type      = CNAME
+         |  rclass    = IN
+         |  ttl       = 25
+         |  rdlen     = 42
+         |  rdata     = 'a-0001.a-afdentry.net.trafficmanager.net.'
+         |###[ DNS Resource Record ]###
+         |  rrname    = 'a-0001.a-afdentry.net.trafficmanager.net.'
+         |  type      = CNAME
+         |  rclass    = IN
+         |  ttl       = 25
+         |  rdlen     = 21
+         |  rdata     = 'a-0001.a-msedge.net.'
+         |###[ DNS Resource Record ]###
+         |  rrname    = 'a-0001.a-msedge.net.'
+         |  type      = A
+         |  rclass    = IN
+         |  ttl       = 4
+         |  rdlen     = 4
+         |  rdata     = '204.79.197.200'
+         |###[ DNS Resource Record ]###
+         |  rrname    = 'a-0001.a-msedge.net.'
+         |  type      = A
+         |  rclass    = IN
+         |  ttl       = 4
+         |  rdlen     = 4
+         |  rdata     = '13.107.21.200'
+        ns        = None
+        ar        = None
+None
+###[ IP ]###
+  version   = 4L
+  ihl       = 5L
+  tos       = 0x0
+  len       = 174
+  id        = 19362
+  flags     = DF
+  frag      = 0L
+  ttl       = 64
+  proto     = udp
+  chksum    = 0xef9a
+  src       = 127.0.1.1
+  dst       = 127.0.0.1
+  \options   \
+###[ UDP ]###
+     sport     = domain
+     dport     = 51432
+     len       = 154
+     chksum    = 0x2c49
+###[ DNS ]###
+        id        = 54138
+        qr        = 1L
+        opcode    = QUERY
+        aa        = 0L
+        tc        = 0L
+        rd        = 1L
+        ra        = 1L
+        z         = 0L
+        rcode     = ok
+        qdcount   = 1
+        ancount   = 4
+        nscount   = 0
+        arcount   = 0
+        \qd        \
+         |###[ DNS Question Record ]###
+         |  qname     = 'www.bing.com.'
+         |  qtype     = A
+         |  qclass    = IN
+        \an        \
+         |###[ DNS Resource Record ]###
+         |  rrname    = 'www.bing.com.'
+         |  type      = CNAME
+         |  rclass    = IN
+         |  ttl       = 25
+         |  rdlen     = 42
+         |  rdata     = 'a-0001.a-afdentry.net.trafficmanager.net.'
+         |###[ DNS Resource Record ]###
+         |  rrname    = 'a-0001.a-afdentry.net.trafficmanager.net.'
+         |  type      = CNAME
+         |  rclass    = IN
+         |  ttl       = 25
+         |  rdlen     = 21
+         |  rdata     = 'a-0001.a-msedge.net.'
+         |###[ DNS Resource Record ]###
+         |  rrname    = 'a-0001.a-msedge.net.'
+         |  type      = A
+         |  rclass    = IN
+         |  ttl       = 4
+         |  rdlen     = 4
+         |  rdata     = '204.79.197.200'
+         |###[ DNS Resource Record ]###
+         |  rrname    = 'a-0001.a-msedge.net.'
+         |  type      = A
+         |  rclass    = IN
+         |  ttl       = 4
+         |  rdlen     = 4
+         |  rdata     = '13.107.21.200'
+        ns        = None
+        ar        = None
+None
+###[ IP ]###
+  version   = 4L
+  ihl       = 5L
+  tos       = 0x0
+  len       = 174
+  id        = 19362
+  flags     = DF
+  frag      = 0L
+  ttl       = 64
+  proto     = udp
+  chksum    = 0xef9a
+  src       = 127.0.1.1
+  dst       = 127.0.0.1
+  \options   \
+###[ UDP ]###
+     sport     = domain
+     dport     = 51432
+     len       = 154
+     chksum    = 0x2c49
+###[ DNS ]###
+        id        = 54138
+        qr        = 1L
+        opcode    = QUERY
+        aa        = 0L
+        tc        = 0L
+        rd        = 1L
+        ra        = 1L
+        z         = 0L
+        rcode     = ok
+        qdcount   = 1
+        ancount   = 4
+        nscount   = 0
+        arcount   = 0
+        \qd        \
+         |###[ DNS Question Record ]###
+         |  qname     = 'www.bing.com.'
+         |  qtype     = A
+         |  qclass    = IN
+        \an        \
+         |###[ DNS Resource Record ]###
+         |  rrname    = 'www.bing.com.'
+         |  type      = CNAME
+         |  rclass    = IN
+         |  ttl       = 25
+         |  rdlen     = 42
+         |  rdata     = 'a-0001.a-afdentry.net.trafficmanager.net.'
+         |###[ DNS Resource Record ]###
+         |  rrname    = 'a-0001.a-afdentry.net.trafficmanager.net.'
+         |  type      = CNAME
+         |  rclass    = IN
+         |  ttl       = 25
+         |  rdlen     = 21
+         |  rdata     = 'a-0001.a-msedge.net.'
+         |###[ DNS Resource Record ]###
+         |  rrname    = 'a-0001.a-msedge.net.'
+         |  type      = A
+         |  rclass    = IN
+         |  ttl       = 4
+         |  rdlen     = 4
+         |  rdata     = '204.79.197.200'
+         |###[ DNS Resource Record ]###
+         |  rrname    = 'a-0001.a-msedge.net.'
+         |  type      = A
+         |  rclass    = IN
+         |  ttl       = 4
+         |  rdlen     = 4
+         |  rdata     = '13.107.21.200'
+        ns        = None
+        ar        = None
+None
+###[ IP ]###
+  version   = 4L
+  ihl       = 5L
+  tos       = 0x0
+  len       = 106
+  id        = 621
+  flags     = DF
+  frag      = 0L
+  ttl       = 64
+  proto     = udp
+  chksum    = 0x604c
+  src       = 192.168.43.1
+  dst       = 192.168.43.120
+  \options   \
+###[ UDP ]###
+     sport     = domain
+     dport     = 44743
+     len       = 86
+     chksum    = 0xf3b3
+###[ DNS ]###
+        id        = 48789
+        qr        = 1L
+        opcode    = QUERY
+        aa        = 0L
+        tc        = 0L
+        rd        = 1L
+        ra        = 1L
+        z         = 0L
+        rcode     = ok
+        qdcount   = 1
+        ancount   = 1
+        nscount   = 0
+        arcount   = 0
+        \qd        \
+         |###[ DNS Question Record ]###
+         |  qname     = '200.197.79.204.in-addr.arpa.'
+         |  qtype     = PTR
+         |  qclass    = IN
+        \an        \
+         |###[ DNS Resource Record ]###
+         |  rrname    = '200.197.79.204.in-addr.arpa.'
+         |  type      = PTR
+         |  rclass    = IN
+         |  ttl       = 3490
+         |  rdlen     = 20
+         |  rdata     = 'a-0001.a-msedge.net.'
+        ns        = None
+        ar        = None
+None
+###[ IP ]###
+  version   = 4L
+  ihl       = 5L
+  tos       = 0x0
+  len       = 106
+  id        = 19373
+  flags     = DF
+  frag      = 0L
+  ttl       = 64
+  proto     = udp
+  chksum    = 0xefd3
+  src       = 127.0.1.1
+  dst       = 127.0.0.1
+  \options   \
+###[ UDP ]###
+     sport     = domain
+     dport     = 42137
+     len       = 86
+     chksum    = 0x6794
+###[ DNS ]###
+        id        = 11691
+        qr        = 1L
+        opcode    = QUERY
+        aa        = 0L
+        tc        = 0L
+        rd        = 1L
+        ra        = 1L
+        z         = 0L
+        rcode     = ok
+        qdcount   = 1
+        ancount   = 1
+        nscount   = 0
+        arcount   = 0
+        \qd        \
+         |###[ DNS Question Record ]###
+         |  qname     = '200.197.79.204.in-addr.arpa.'
+         |  qtype     = PTR
+         |  qclass    = IN
+        \an        \
+         |###[ DNS Resource Record ]###
+         |  rrname    = '200.197.79.204.in-addr.arpa.'
+         |  type      = PTR
+         |  rclass    = IN
+         |  ttl       = 3490
+         |  rdlen     = 20
+         |  rdata     = 'a-0001.a-msedge.net.'
+        ns        = None
+        ar        = None
+None
+###[ IP ]###
+  version   = 4L
+  ihl       = 5L
+  tos       = 0x0
+  len       = 106
+  id        = 19373
+  flags     = DF
+  frag      = 0L
+  ttl       = 64
+  proto     = udp
+  chksum    = 0xefd3
+  src       = 127.0.1.1
+  dst       = 127.0.0.1
+  \options   \
+###[ UDP ]###
+     sport     = domain
+     dport     = 42137
+     len       = 86
+     chksum    = 0x6794
+###[ DNS ]###
+        id        = 11691
+        qr        = 1L
+        opcode    = QUERY
+        aa        = 0L
+        tc        = 0L
+        rd        = 1L
+        ra        = 1L
+        z         = 0L
+        rcode     = ok
+        qdcount   = 1
+        ancount   = 1
+        nscount   = 0
+        arcount   = 0
+        \qd        \
+         |###[ DNS Question Record ]###
+         |  qname     = '200.197.79.204.in-addr.arpa.'
+         |  qtype     = PTR
+         |  qclass    = IN
+        \an        \
+         |###[ DNS Resource Record ]###
+         |  rrname    = '200.197.79.204.in-addr.arpa.'
+         |  type      = PTR
+         |  rclass    = IN
+         |  ttl       = 3490
+         |  rdlen     = 20
+         |  rdata     = 'a-0001.a-msedge.net.'
+        ns        = None
+        ar        = None
+None
