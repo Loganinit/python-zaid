@@ -9,12 +9,12 @@ import scapy.all as scapy
 
 def process_packet(packet):
 	scapy_packet = scapy.IP(packet.get_payload())
-	#convert raw packet unreadable into scapy packet
+	#convert raw packet unreadable one into scapy packet
 
 	if scapy_packet.haslayer(scapy.DNSRR):		#if packet has DNS Resource Record from response packet it's only in response packet
 		print scapy_packet.show()
 
-	packet.accept()		#accept the packet to process else it is remains in queue farever
+	packet.accept()		#accept the packet to process else it is remains in queue forever
 
 queue = netfilterqueue.NetfilterQueue()
 #create a netfilterqueue instance

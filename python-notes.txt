@@ -128,6 +128,44 @@ scapy.send(arp_respond)
 scapy.send(arp_respond,verbose=False,count=4)
 #verbose is False to not display the verbose message on the screen and packet count is 4
 
+
+scapy.sniff(iface = interface, store = False, prn = process_sniffed_packet)
+def process_sniffed_packet(packet):
+	print packet
+#scapy.sniff to sniff the packet in specified interface and said not to keep in buffer by store=False 
+#pwn meaning is owned or compromised what sniff the packet what functions to do we give process_sniffed_packet which just print the packet
+
+packet.haslayer(scapy.Raw)
+scapy_packet.haslayer(scapy.DNSRR):
+#check if the packet has a layer Raw 
+
+packet[scapy.Raw].load
+packet[http.HTTPRequest].Host + packet[http.HTTPRequest].Path
+#return value of load in the packet
+
+scapy_packet = scapy.IP(packet.get_payload())
+#convert raw packet unreadable one into scapy packet
+
+packet.set_payload(str(modified_packet))
+#bulid a packet 
+
+del scapy_packet[scapy.IP].chksum
+#del entry in the scapy packet to regenerate into new one
+
+ack_list.append(scapy_packet[scapy.TCP].ack)
+ack_list.remove(scapy_packet[scapy.TCP].seq)
+#ack_list is list to store ack number in the packet
+
+
+
+
+
+
+
+
+
+
+
 ----------------------------------------------------------------------------------------------------------------------------
 
 import time 
@@ -174,23 +212,24 @@ except KeyboardInterrupt:
 
 ----------------------------------------------------------------------------------------------------------------------------
 
+import netfilterqueue
+#pip install NetfilterQueue
+#apt-get install build-essential python-dev libnetfilter-queue-dev
+#capture the request packet from client and save to a queue using iptables and alter send or recieve modified packet
+#convert the raw packet to scapy packet to modify the request
 
+queue = netfilterqueue.NetfilterQueue()
+#create a netfilterqueue instance
 
+queue.bind(0,process_packet)
+#blind the queue number 0 where we create a queue zero in iptables
 
+queue.run()
+#run the queue else it will not run
 
+def process_packet(packet):
+	
+	packet.accept()
+#accept the packet to process else it is remains in queue forever
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+----------------------------------------------------------------------------------------------------------------------------
