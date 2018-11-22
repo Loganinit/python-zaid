@@ -42,13 +42,13 @@ def getmac_all(ip_range):
 	
 	return clients_list
 
-ip_mac = getmac_all(ip_range)
-#ip_mac = getmac_all("192.168.43.1/24")
+
+ip_mac = getmac_all("192.168.43.1/24")
 print ip_mac
 
 def getmac(ip_addr):
 	for items in ip_mac:
-		if ip_addr in items.keys()
+		if ip_addr in items.keys():
 			mac_addr = items[ip_addr]
 			return mac_addr
 
