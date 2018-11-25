@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python
 #capture the request packet from client and save to a queue using iptables and alter send or recieve modified packet
 #iptables commands iptables -I FORWARD -j NFQUEUE --queue-num 0
 #iptables -I FORWARD -j NFQUEUE --queue-num 0

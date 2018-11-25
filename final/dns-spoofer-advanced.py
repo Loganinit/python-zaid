@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python
 #capture the request packet from client and save to a queue using iptables and alter send or recieve modified packet
 #convert the raw packet to scapy packet to modify the request
 #In single machine

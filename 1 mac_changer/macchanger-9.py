@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python
 '''
 Getting the value for  the interface and mac addr to a variable and 
 then pass the value to the command directly

@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python
 
 import netfilterqueue
 import scapy.all as scapy

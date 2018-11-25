@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python
 #filtering with 3 rd party module scap_http for request method
 #filter only creditials which contains login, username, password as keyword
 #extracting urls
