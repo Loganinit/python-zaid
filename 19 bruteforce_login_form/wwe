@@ -1,0 +1,26 @@
+[<form action="index.php?page=dns-lookup.php" method="post" enctype="application/x-www-form-urlencoded" onsubmit="return onSubmitBlogEntry(this);" id="idDNSLookupForm">
+<table style="margin-left:auto; margin-right:auto;">
+<tr id="id-bad-cred-tr" style="display: none;">
+<td colspan="2" class="error-message">
+				Error: Invalid Input
+			</td>
+</tr>
+<tr><td></td></tr>
+<tr>
+<td colspan="2" class="form-header">Who would you like to do a DNS lookup on?<br /><br />Enter IP or hostname</td>
+</tr>
+<tr><td></td></tr>
+<tr>
+<td class="label">Hostname/IP</td>
+<td><input type="text" id="idTargetHostInput" name="target_host" size="20" /></td>
+</tr>
+<tr><td></td></tr>
+<tr>
+<td colspan="2" style="text-align:center;">
+<input name="dns-lookup-php-submit-button" class="button" type="submit" value="Lookup DNS" />
+</td>
+</tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+</table>
+</form>]
