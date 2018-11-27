@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python2.7
 #capture the request packet from client and save to a queue using iptables and alter to send or recieve modified packet
 #drop the packet cut the netconnection because packet.accept() is not specified
 

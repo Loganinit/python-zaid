@@ -1,9 +1,7 @@
-#!/usr/bin/python
-#filtering with 3 rd party module scap_http for request method
+#!/usr/bin/python2.7
+#Using a 3rd party module scap_http pip install scap_http to filter http properties method
 #filter only creditials which contains login, username, password as keyword
-#extracting urls
-#refining the program
-
+#extract the urls visted
 
 import scapy.all as scapy
 from scapy.layers import http
@@ -43,6 +41,5 @@ def process_sniffed_packet(packet):
 		if logininfo:
 			print "\n\n[+]Possible username and password "+ logininfo+"\n\n"
 
-		
-			
+
 sniff(options.interface)

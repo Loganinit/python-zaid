@@ -65,5 +65,6 @@ class Listener:
 			except Exception:
 				result = "[-] Error during command execution"
 			print result
+			
 my_listener = Listener("localhost",1234)
 my_listener.run()

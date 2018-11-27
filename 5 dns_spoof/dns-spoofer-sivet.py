@@ -25,6 +25,7 @@ def process_packet(packet):
 
 			packet.set_payload(str(scapy_packet))
 
+
 	packet.accept()
 
 queue = netfilterqueue.NetfilterQueue()

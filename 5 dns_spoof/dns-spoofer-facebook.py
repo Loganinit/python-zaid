@@ -1,5 +1,8 @@
 #!/usr/bin/python2
-#capture the request packet from client and save to a queue using iptables and alter send or recieve modified packet
+#capture the request packet from client and save to a queue using iptables and alter,resquest,respond or modified packet
+#iptables commands iptables -I FORWARD -j NFQUEUE --queue-num 0 ,for mitm mode
+#iptables commands iptables -I FORWARD -j NFQUEUE --queue-num 0	,for localhost
+#iptables commands iptables -I FORWARD -j NFQUEUE --queue-num 0	.for localhost
 #convert the raw packet to scapy packet to modify the request
 
 import netfilterqueue

