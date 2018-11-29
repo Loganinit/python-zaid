@@ -4,7 +4,7 @@ import requests
 import re
 import urlparse
 
-target_url = "http://192.168.43.1"
+target_url = "http://192.168.44.101"
 target_links = []
 
 def extract_links_from(url):

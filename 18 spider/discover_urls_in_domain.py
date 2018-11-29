@@ -1,4 +1,5 @@
-#!/usr/bin/python
+#!/usr/bin/python2.7
+#discover urls in the domain by extract the href link in the content and crawl recursively to get all urls
 
 import requests
 import re
@@ -17,12 +18,12 @@ def crawl(url):
 	for link in href_links:
 		link = urlparse.urljoin(url,link)
 
-		if "#" in link:	# #r refers to original page so avoid duplicate page again and again
+		if "#" in link:	# # refers to original page so avoid duplicate page again and again
 			link = link.split("#")[0]
 
 		if target_url in link and link not in target_links: #to avoid repeating the same url
 			target_links.append(link)
-			print link
-			crawl(link) #recurrsively crawling
+			print "[+]urls --->",link
+			crawl(link) #recursively crawling
 
 crawl(target_url)

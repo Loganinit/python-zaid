@@ -1,0 +1,24 @@
+Bypass https by using a tool called sslstrip which actually strip the https connection to http
+so we can now modify the packet and futher manipulate it
+
+open a terminal and run 
+sslstrip 
+#sslstrip run on port 10000 by default 
+
+#write a iptables rule to sslstrip as a proxy from client to server so sslstrip sit as intermeditate to modify the data
+iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 10000
+
+run an arp_spoof on your desired target machine
+
+and run redirect_to_download_evilfile or xss_alert_injector script to do some attacks on target machine
+
+on target machine Of the client browser any request send it will in http even if it has https version
+it will contact only the http version of page 
+
+sslstrip act as an intermeditary between victim and server 
+
+flow:   	client ---->sslstrip(hacker) ----->server
+request:	http ------>https----------------->server
+respond:	http<-------https<-----------------server
+
+if it not works clear the cache on the web browser and try again

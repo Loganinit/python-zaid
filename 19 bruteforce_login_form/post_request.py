@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python2.7
 
 import requests
 
@@ -8,3 +8,4 @@ response = requests.post(target_url, data=data_dict)
 
 print response
 print response.content
+
